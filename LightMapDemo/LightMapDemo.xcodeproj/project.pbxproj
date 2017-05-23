@@ -1,0 +1,751 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16BCAD4B1ED46DA100EB1A38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD4A1ED46DA100EB1A38 /* main.m */; };
+		16BCAD4E1ED46DA100EB1A38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD4D1ED46DA100EB1A38 /* AppDelegate.m */; };
+		16BCAD511ED46DA100EB1A38 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD501ED46DA100EB1A38 /* ViewController.m */; };
+		16BCAD541ED46DA100EB1A38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BCAD521ED46DA100EB1A38 /* Main.storyboard */; };
+		16BCAD561ED46DA100EB1A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BCAD551ED46DA100EB1A38 /* Assets.xcassets */; };
+		16BCAD591ED46DA100EB1A38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BCAD571ED46DA100EB1A38 /* LaunchScreen.storyboard */; };
+		16BCAD641ED46DA100EB1A38 /* LightMapDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD631ED46DA100EB1A38 /* LightMapDemoTests.m */; };
+		16BCAD6F1ED46DA100EB1A38 /* LightMapDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD6E1ED46DA100EB1A38 /* LightMapDemoUITests.m */; };
+		16BCAD871ED46E8300EB1A38 /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD861ED46E8300EB1A38 /* MapViewController.mm */; };
+		16BCAD8C1ED46E9B00EB1A38 /* MapSearchKeyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD891ED46E9B00EB1A38 /* MapSearchKeyModel.m */; };
+		16BCAD8D1ED46E9B00EB1A38 /* MapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD8B1ED46E9B00EB1A38 /* MapViewDelegate.m */; };
+		16BCAD941ED46EAB00EB1A38 /* MapNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD8F1ED46EAB00EB1A38 /* MapNetWorkManager.m */; };
+		16BCAD951ED46EAB00EB1A38 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD911ED46EAB00EB1A38 /* MapViewManager.m */; };
+		16BCAD961ED46EAB00EB1A38 /* MapViewManager+Annotations.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD931ED46EAB00EB1A38 /* MapViewManager+Annotations.m */; };
+		16BCAD9C1ED46F1600EB1A38 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD991ED46F1600EB1A38 /* UIView+frame.m */; };
+		16BCAD9D1ED46F1600EB1A38 /* UIView+LineDash.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD9B1ED46F1600EB1A38 /* UIView+LineDash.m */; };
+		16BCADA01ED46FA100EB1A38 /* MyControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD9F1ED46FA100EB1A38 /* MyControl.m */; };
+		16BCADA81ED4817C00EB1A38 /* MapInfomationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCADA71ED4817C00EB1A38 /* MapInfomationBar.m */; };
+		16BCADB21ED4F64200EB1A38 /* MapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCADB11ED4F64200EB1A38 /* MapAnnotationView.m */; };
+		C927FA551877979B66C67C8A /* libPods-LightMapDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF05AD184D4F9406962C541A /* libPods-LightMapDemo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16BCAD601ED46DA100EB1A38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16BCAD3E1ED46DA100EB1A38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16BCAD451ED46DA100EB1A38;
+			remoteInfo = LightMapDemo;
+		};
+		16BCAD6B1ED46DA100EB1A38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16BCAD3E1ED46DA100EB1A38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16BCAD451ED46DA100EB1A38;
+			remoteInfo = LightMapDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16BCAD461ED46DA100EB1A38 /* LightMapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightMapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16BCAD4A1ED46DA100EB1A38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		16BCAD4C1ED46DA100EB1A38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		16BCAD4D1ED46DA100EB1A38 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		16BCAD4F1ED46DA100EB1A38 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		16BCAD501ED46DA100EB1A38 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		16BCAD531ED46DA100EB1A38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		16BCAD551ED46DA100EB1A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16BCAD581ED46DA100EB1A38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		16BCAD5A1ED46DA100EB1A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16BCAD5F1ED46DA100EB1A38 /* LightMapDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightMapDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16BCAD631ED46DA100EB1A38 /* LightMapDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightMapDemoTests.m; sourceTree = "<group>"; };
+		16BCAD651ED46DA100EB1A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16BCAD6A1ED46DA100EB1A38 /* LightMapDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightMapDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16BCAD6E1ED46DA100EB1A38 /* LightMapDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightMapDemoUITests.m; sourceTree = "<group>"; };
+		16BCAD701ED46DA100EB1A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16BCAD841ED46E6D00EB1A38 /* Constant_Basic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant_Basic.h; sourceTree = "<group>"; };
+		16BCAD851ED46E8300EB1A38 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		16BCAD861ED46E8300EB1A38 /* MapViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MapViewController.mm; sourceTree = "<group>"; };
+		16BCAD881ED46E9B00EB1A38 /* MapSearchKeyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSearchKeyModel.h; sourceTree = "<group>"; };
+		16BCAD891ED46E9B00EB1A38 /* MapSearchKeyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSearchKeyModel.m; sourceTree = "<group>"; };
+		16BCAD8A1ED46E9B00EB1A38 /* MapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewDelegate.h; sourceTree = "<group>"; };
+		16BCAD8B1ED46E9B00EB1A38 /* MapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewDelegate.m; sourceTree = "<group>"; };
+		16BCAD8E1ED46EAB00EB1A38 /* MapNetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNetWorkManager.h; sourceTree = "<group>"; };
+		16BCAD8F1ED46EAB00EB1A38 /* MapNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNetWorkManager.m; sourceTree = "<group>"; };
+		16BCAD901ED46EAB00EB1A38 /* MapViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewManager.h; sourceTree = "<group>"; };
+		16BCAD911ED46EAB00EB1A38 /* MapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewManager.m; sourceTree = "<group>"; };
+		16BCAD921ED46EAB00EB1A38 /* MapViewManager+Annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MapViewManager+Annotations.h"; sourceTree = "<group>"; };
+		16BCAD931ED46EAB00EB1A38 /* MapViewManager+Annotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MapViewManager+Annotations.m"; sourceTree = "<group>"; };
+		16BCAD971ED46EB900EB1A38 /* MapViewTargetProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewTargetProtocol.h; sourceTree = "<group>"; };
+		16BCAD981ED46F1600EB1A38 /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frame.h"; sourceTree = "<group>"; };
+		16BCAD991ED46F1600EB1A38 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
+		16BCAD9A1ED46F1600EB1A38 /* UIView+LineDash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LineDash.h"; sourceTree = "<group>"; };
+		16BCAD9B1ED46F1600EB1A38 /* UIView+LineDash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LineDash.m"; sourceTree = "<group>"; };
+		16BCAD9E1ED46FA100EB1A38 /* MyControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyControl.h; sourceTree = "<group>"; };
+		16BCAD9F1ED46FA100EB1A38 /* MyControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyControl.m; sourceTree = "<group>"; };
+		16BCADA11ED46FCA00EB1A38 /* MapAnimationDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnimationDefines.h; sourceTree = "<group>"; };
+		16BCADA61ED4817C00EB1A38 /* MapInfomationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInfomationBar.h; sourceTree = "<group>"; };
+		16BCADA71ED4817C00EB1A38 /* MapInfomationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfomationBar.m; sourceTree = "<group>"; };
+		16BCADB01ED4F64200EB1A38 /* MapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotationView.h; sourceTree = "<group>"; };
+		16BCADB11ED4F64200EB1A38 /* MapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotationView.m; sourceTree = "<group>"; };
+		345BF89CDB8CC849A241B6C9 /* Pods-LightMapDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightMapDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LightMapDemo/Pods-LightMapDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		BB9BB6C47ED3BD19C754FDDB /* Pods-LightMapDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightMapDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightMapDemo/Pods-LightMapDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FF05AD184D4F9406962C541A /* libPods-LightMapDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LightMapDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16BCAD431ED46DA100EB1A38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C927FA551877979B66C67C8A /* libPods-LightMapDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16BCAD5C1ED46DA100EB1A38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16BCAD671ED46DA100EB1A38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16BCAD3D1ED46DA100EB1A38 = {
+			isa = PBXGroup;
+			children = (
+				16BCAD481ED46DA100EB1A38 /* LightMapDemo */,
+				16BCAD621ED46DA100EB1A38 /* LightMapDemoTests */,
+				16BCAD6D1ED46DA100EB1A38 /* LightMapDemoUITests */,
+				16BCAD471ED46DA100EB1A38 /* Products */,
+				1C2CE5554A4675904804958D /* Pods */,
+				4C1397572DC3694C59012FB1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		16BCAD471ED46DA100EB1A38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD461ED46DA100EB1A38 /* LightMapDemo.app */,
+				16BCAD5F1ED46DA100EB1A38 /* LightMapDemoTests.xctest */,
+				16BCAD6A1ED46DA100EB1A38 /* LightMapDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16BCAD481ED46DA100EB1A38 /* LightMapDemo */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD7C1ED46E4600EB1A38 /* Category */,
+				16BCAD7D1ED46E4600EB1A38 /* Constant */,
+				16BCAD7E1ED46E4600EB1A38 /* MapSearch */,
+				16BCAD831ED46E4600EB1A38 /* Tools */,
+				16BCAD4C1ED46DA100EB1A38 /* AppDelegate.h */,
+				16BCAD4D1ED46DA100EB1A38 /* AppDelegate.m */,
+				16BCAD4F1ED46DA100EB1A38 /* ViewController.h */,
+				16BCAD501ED46DA100EB1A38 /* ViewController.m */,
+				16BCAD521ED46DA100EB1A38 /* Main.storyboard */,
+				16BCAD551ED46DA100EB1A38 /* Assets.xcassets */,
+				16BCAD571ED46DA100EB1A38 /* LaunchScreen.storyboard */,
+				16BCAD5A1ED46DA100EB1A38 /* Info.plist */,
+				16BCAD491ED46DA100EB1A38 /* Supporting Files */,
+			);
+			path = LightMapDemo;
+			sourceTree = "<group>";
+		};
+		16BCAD491ED46DA100EB1A38 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD4A1ED46DA100EB1A38 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16BCAD621ED46DA100EB1A38 /* LightMapDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD631ED46DA100EB1A38 /* LightMapDemoTests.m */,
+				16BCAD651ED46DA100EB1A38 /* Info.plist */,
+			);
+			path = LightMapDemoTests;
+			sourceTree = "<group>";
+		};
+		16BCAD6D1ED46DA100EB1A38 /* LightMapDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD6E1ED46DA100EB1A38 /* LightMapDemoUITests.m */,
+				16BCAD701ED46DA100EB1A38 /* Info.plist */,
+			);
+			path = LightMapDemoUITests;
+			sourceTree = "<group>";
+		};
+		16BCAD7C1ED46E4600EB1A38 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD981ED46F1600EB1A38 /* UIView+frame.h */,
+				16BCAD991ED46F1600EB1A38 /* UIView+frame.m */,
+				16BCAD9A1ED46F1600EB1A38 /* UIView+LineDash.h */,
+				16BCAD9B1ED46F1600EB1A38 /* UIView+LineDash.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		16BCAD7D1ED46E4600EB1A38 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD841ED46E6D00EB1A38 /* Constant_Basic.h */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		16BCAD7E1ED46E4600EB1A38 /* MapSearch */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD7F1ED46E4600EB1A38 /* Controller */,
+				16BCAD801ED46E4600EB1A38 /* Manager */,
+				16BCAD811ED46E4600EB1A38 /* Model */,
+				16BCAD821ED46E4600EB1A38 /* View */,
+			);
+			path = MapSearch;
+			sourceTree = "<group>";
+		};
+		16BCAD7F1ED46E4600EB1A38 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16BCADA11ED46FCA00EB1A38 /* MapAnimationDefines.h */,
+				16BCAD851ED46E8300EB1A38 /* MapViewController.h */,
+				16BCAD861ED46E8300EB1A38 /* MapViewController.mm */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		16BCAD801ED46E4600EB1A38 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD8E1ED46EAB00EB1A38 /* MapNetWorkManager.h */,
+				16BCAD8F1ED46EAB00EB1A38 /* MapNetWorkManager.m */,
+				16BCAD901ED46EAB00EB1A38 /* MapViewManager.h */,
+				16BCAD911ED46EAB00EB1A38 /* MapViewManager.m */,
+				16BCAD921ED46EAB00EB1A38 /* MapViewManager+Annotations.h */,
+				16BCAD931ED46EAB00EB1A38 /* MapViewManager+Annotations.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		16BCAD811ED46E4600EB1A38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD971ED46EB900EB1A38 /* MapViewTargetProtocol.h */,
+				16BCAD881ED46E9B00EB1A38 /* MapSearchKeyModel.h */,
+				16BCAD891ED46E9B00EB1A38 /* MapSearchKeyModel.m */,
+				16BCAD8A1ED46E9B00EB1A38 /* MapViewDelegate.h */,
+				16BCAD8B1ED46E9B00EB1A38 /* MapViewDelegate.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16BCAD821ED46E4600EB1A38 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16BCADA61ED4817C00EB1A38 /* MapInfomationBar.h */,
+				16BCADA71ED4817C00EB1A38 /* MapInfomationBar.m */,
+				16BCADB01ED4F64200EB1A38 /* MapAnnotationView.h */,
+				16BCADB11ED4F64200EB1A38 /* MapAnnotationView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16BCAD831ED46E4600EB1A38 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				16BCAD9E1ED46FA100EB1A38 /* MyControl.h */,
+				16BCAD9F1ED46FA100EB1A38 /* MyControl.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		1C2CE5554A4675904804958D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				345BF89CDB8CC849A241B6C9 /* Pods-LightMapDemo.debug.xcconfig */,
+				BB9BB6C47ED3BD19C754FDDB /* Pods-LightMapDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4C1397572DC3694C59012FB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF05AD184D4F9406962C541A /* libPods-LightMapDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16BCAD451ED46DA100EB1A38 /* LightMapDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16BCAD731ED46DA100EB1A38 /* Build configuration list for PBXNativeTarget "LightMapDemo" */;
+			buildPhases = (
+				D2A4274014B2A98A0A07232D /* [CP] Check Pods Manifest.lock */,
+				16BCAD421ED46DA100EB1A38 /* Sources */,
+				16BCAD431ED46DA100EB1A38 /* Frameworks */,
+				16BCAD441ED46DA100EB1A38 /* Resources */,
+				391CF0D71B03D56A87FEF2A4 /* [CP] Embed Pods Frameworks */,
+				52C471A94A7F4267239BFDAA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LightMapDemo;
+			productName = LightMapDemo;
+			productReference = 16BCAD461ED46DA100EB1A38 /* LightMapDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		16BCAD5E1ED46DA100EB1A38 /* LightMapDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16BCAD761ED46DA100EB1A38 /* Build configuration list for PBXNativeTarget "LightMapDemoTests" */;
+			buildPhases = (
+				16BCAD5B1ED46DA100EB1A38 /* Sources */,
+				16BCAD5C1ED46DA100EB1A38 /* Frameworks */,
+				16BCAD5D1ED46DA100EB1A38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16BCAD611ED46DA100EB1A38 /* PBXTargetDependency */,
+			);
+			name = LightMapDemoTests;
+			productName = LightMapDemoTests;
+			productReference = 16BCAD5F1ED46DA100EB1A38 /* LightMapDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		16BCAD691ED46DA100EB1A38 /* LightMapDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16BCAD791ED46DA100EB1A38 /* Build configuration list for PBXNativeTarget "LightMapDemoUITests" */;
+			buildPhases = (
+				16BCAD661ED46DA100EB1A38 /* Sources */,
+				16BCAD671ED46DA100EB1A38 /* Frameworks */,
+				16BCAD681ED46DA100EB1A38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16BCAD6C1ED46DA100EB1A38 /* PBXTargetDependency */,
+			);
+			name = LightMapDemoUITests;
+			productName = LightMapDemoUITests;
+			productReference = 16BCAD6A1ED46DA100EB1A38 /* LightMapDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16BCAD3E1ED46DA100EB1A38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = ccSunday;
+				TargetAttributes = {
+					16BCAD451ED46DA100EB1A38 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 457RV2A88C;
+						ProvisioningStyle = Automatic;
+					};
+					16BCAD5E1ED46DA100EB1A38 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 16BCAD451ED46DA100EB1A38;
+					};
+					16BCAD691ED46DA100EB1A38 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 16BCAD451ED46DA100EB1A38;
+					};
+				};
+			};
+			buildConfigurationList = 16BCAD411ED46DA100EB1A38 /* Build configuration list for PBXProject "LightMapDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16BCAD3D1ED46DA100EB1A38;
+			productRefGroup = 16BCAD471ED46DA100EB1A38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16BCAD451ED46DA100EB1A38 /* LightMapDemo */,
+				16BCAD5E1ED46DA100EB1A38 /* LightMapDemoTests */,
+				16BCAD691ED46DA100EB1A38 /* LightMapDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16BCAD441ED46DA100EB1A38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16BCAD591ED46DA100EB1A38 /* LaunchScreen.storyboard in Resources */,
+				16BCAD561ED46DA100EB1A38 /* Assets.xcassets in Resources */,
+				16BCAD541ED46DA100EB1A38 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16BCAD5D1ED46DA100EB1A38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16BCAD681ED46DA100EB1A38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		391CF0D71B03D56A87FEF2A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LightMapDemo/Pods-LightMapDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52C471A94A7F4267239BFDAA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LightMapDemo/Pods-LightMapDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2A4274014B2A98A0A07232D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16BCAD421ED46DA100EB1A38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16BCAD511ED46DA100EB1A38 /* ViewController.m in Sources */,
+				16BCADB21ED4F64200EB1A38 /* MapAnnotationView.m in Sources */,
+				16BCAD961ED46EAB00EB1A38 /* MapViewManager+Annotations.m in Sources */,
+				16BCAD8C1ED46E9B00EB1A38 /* MapSearchKeyModel.m in Sources */,
+				16BCAD871ED46E8300EB1A38 /* MapViewController.mm in Sources */,
+				16BCAD4E1ED46DA100EB1A38 /* AppDelegate.m in Sources */,
+				16BCAD9D1ED46F1600EB1A38 /* UIView+LineDash.m in Sources */,
+				16BCAD8D1ED46E9B00EB1A38 /* MapViewDelegate.m in Sources */,
+				16BCADA81ED4817C00EB1A38 /* MapInfomationBar.m in Sources */,
+				16BCAD4B1ED46DA100EB1A38 /* main.m in Sources */,
+				16BCAD941ED46EAB00EB1A38 /* MapNetWorkManager.m in Sources */,
+				16BCADA01ED46FA100EB1A38 /* MyControl.m in Sources */,
+				16BCAD9C1ED46F1600EB1A38 /* UIView+frame.m in Sources */,
+				16BCAD951ED46EAB00EB1A38 /* MapViewManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16BCAD5B1ED46DA100EB1A38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16BCAD641ED46DA100EB1A38 /* LightMapDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16BCAD661ED46DA100EB1A38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16BCAD6F1ED46DA100EB1A38 /* LightMapDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16BCAD611ED46DA100EB1A38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16BCAD451ED46DA100EB1A38 /* LightMapDemo */;
+			targetProxy = 16BCAD601ED46DA100EB1A38 /* PBXContainerItemProxy */;
+		};
+		16BCAD6C1ED46DA100EB1A38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16BCAD451ED46DA100EB1A38 /* LightMapDemo */;
+			targetProxy = 16BCAD6B1ED46DA100EB1A38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		16BCAD521ED46DA100EB1A38 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16BCAD531ED46DA100EB1A38 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		16BCAD571ED46DA100EB1A38 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16BCAD581ED46DA100EB1A38 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16BCAD711ED46DA100EB1A38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16BCAD721ED46DA100EB1A38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16BCAD741ED46DA100EB1A38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 345BF89CDB8CC849A241B6C9 /* Pods-LightMapDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 457RV2A88C;
+				INFOPLIST_FILE = LightMapDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.txbd.Deliver.LightMapDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		16BCAD751ED46DA100EB1A38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB9BB6C47ED3BD19C754FDDB /* Pods-LightMapDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 457RV2A88C;
+				INFOPLIST_FILE = LightMapDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.txbd.Deliver.LightMapDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		16BCAD771ED46DA100EB1A38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LightMapDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.txbd.Deliver.LightMapDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightMapDemo.app/LightMapDemo";
+			};
+			name = Debug;
+		};
+		16BCAD781ED46DA100EB1A38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LightMapDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.txbd.Deliver.LightMapDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightMapDemo.app/LightMapDemo";
+			};
+			name = Release;
+		};
+		16BCAD7A1ED46DA100EB1A38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LightMapDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.txbd.Deliver.LightMapDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LightMapDemo;
+			};
+			name = Debug;
+		};
+		16BCAD7B1ED46DA100EB1A38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LightMapDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.txbd.Deliver.LightMapDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LightMapDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16BCAD411ED46DA100EB1A38 /* Build configuration list for PBXProject "LightMapDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16BCAD711ED46DA100EB1A38 /* Debug */,
+				16BCAD721ED46DA100EB1A38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16BCAD731ED46DA100EB1A38 /* Build configuration list for PBXNativeTarget "LightMapDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16BCAD741ED46DA100EB1A38 /* Debug */,
+				16BCAD751ED46DA100EB1A38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16BCAD761ED46DA100EB1A38 /* Build configuration list for PBXNativeTarget "LightMapDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16BCAD771ED46DA100EB1A38 /* Debug */,
+				16BCAD781ED46DA100EB1A38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16BCAD791ED46DA100EB1A38 /* Build configuration list for PBXNativeTarget "LightMapDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16BCAD7A1ED46DA100EB1A38 /* Debug */,
+				16BCAD7B1ED46DA100EB1A38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16BCAD3E1ED46DA100EB1A38 /* Project object */;
+}
