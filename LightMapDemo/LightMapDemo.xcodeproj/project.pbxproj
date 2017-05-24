@@ -26,6 +26,8 @@
 		16BCADA01ED46FA100EB1A38 /* MyControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD9F1ED46FA100EB1A38 /* MyControl.m */; };
 		16BCADA81ED4817C00EB1A38 /* MapInfomationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCADA71ED4817C00EB1A38 /* MapInfomationBar.m */; };
 		16BCADB21ED4F64200EB1A38 /* MapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCADB11ED4F64200EB1A38 /* MapAnnotationView.m */; };
+		16BCADBD1ED5316400EB1A38 /* BMKAnnotationView+MethodHooked.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCADBA1ED5316400EB1A38 /* BMKAnnotationView+MethodHooked.m */; };
+		16BCADBE1ED5316400EB1A38 /* NSObject+RunTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCADBC1ED5316400EB1A38 /* NSObject+RunTimeHelper.m */; };
 		C927FA551877979B66C67C8A /* libPods-LightMapDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF05AD184D4F9406962C541A /* libPods-LightMapDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,10 @@
 		16BCADA71ED4817C00EB1A38 /* MapInfomationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfomationBar.m; sourceTree = "<group>"; };
 		16BCADB01ED4F64200EB1A38 /* MapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotationView.h; sourceTree = "<group>"; };
 		16BCADB11ED4F64200EB1A38 /* MapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotationView.m; sourceTree = "<group>"; };
+		16BCADB91ED5316400EB1A38 /* BMKAnnotationView+MethodHooked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMKAnnotationView+MethodHooked.h"; sourceTree = "<group>"; };
+		16BCADBA1ED5316400EB1A38 /* BMKAnnotationView+MethodHooked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMKAnnotationView+MethodHooked.m"; sourceTree = "<group>"; };
+		16BCADBB1ED5316400EB1A38 /* NSObject+RunTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RunTimeHelper.h"; sourceTree = "<group>"; };
+		16BCADBC1ED5316400EB1A38 /* NSObject+RunTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RunTimeHelper.m"; sourceTree = "<group>"; };
 		345BF89CDB8CC849A241B6C9 /* Pods-LightMapDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightMapDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LightMapDemo/Pods-LightMapDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BB9BB6C47ED3BD19C754FDDB /* Pods-LightMapDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightMapDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightMapDemo/Pods-LightMapDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FF05AD184D4F9406962C541A /* libPods-LightMapDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LightMapDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +196,10 @@
 		16BCAD7C1ED46E4600EB1A38 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				16BCADB91ED5316400EB1A38 /* BMKAnnotationView+MethodHooked.h */,
+				16BCADBA1ED5316400EB1A38 /* BMKAnnotationView+MethodHooked.m */,
+				16BCADBB1ED5316400EB1A38 /* NSObject+RunTimeHelper.h */,
+				16BCADBC1ED5316400EB1A38 /* NSObject+RunTimeHelper.m */,
 				16BCAD981ED46F1600EB1A38 /* UIView+frame.h */,
 				16BCAD991ED46F1600EB1A38 /* UIView+frame.m */,
 				16BCAD9A1ED46F1600EB1A38 /* UIView+LineDash.h */,
@@ -474,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16BCADBD1ED5316400EB1A38 /* BMKAnnotationView+MethodHooked.m in Sources */,
 				16BCAD511ED46DA100EB1A38 /* ViewController.m in Sources */,
 				16BCADB21ED4F64200EB1A38 /* MapAnnotationView.m in Sources */,
 				16BCAD961ED46EAB00EB1A38 /* MapViewManager+Annotations.m in Sources */,
@@ -483,6 +494,7 @@
 				16BCAD9D1ED46F1600EB1A38 /* UIView+LineDash.m in Sources */,
 				16BCAD8D1ED46E9B00EB1A38 /* MapViewDelegate.m in Sources */,
 				16BCADA81ED4817C00EB1A38 /* MapInfomationBar.m in Sources */,
+				16BCADBE1ED5316400EB1A38 /* NSObject+RunTimeHelper.m in Sources */,
 				16BCAD4B1ED46DA100EB1A38 /* main.m in Sources */,
 				16BCAD941ED46EAB00EB1A38 /* MapNetWorkManager.m in Sources */,
 				16BCADA01ED46FA100EB1A38 /* MyControl.m in Sources */,
