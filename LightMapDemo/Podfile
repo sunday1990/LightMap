@@ -6,4 +6,5 @@ target “LightMapDemo” do
 
 pod 'BaiduMapKit', '~> 3.3.0'
 pod “MJExtension”,”~> 3.0.10”
+pod “SVProgressHUD”,”~> 1.1.3”
 end

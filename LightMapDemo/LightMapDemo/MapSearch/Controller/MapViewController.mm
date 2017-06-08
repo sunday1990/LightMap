@@ -111,6 +111,7 @@
 - (MapViewManager *)mapViewManager{
     _mapViewManager = [MapViewManager sharedMapViewManager];
     _mapViewManager.searchKeyModel = self.searchKeyModel;
+    [_mapViewManager hideBaiduMapLogo];
     return _mapViewManager;
 }
 
@@ -135,6 +136,8 @@
                 [weakself requestData];
             }else if (event == MapViewDelegateEventDidFinishLoading){
                
+            }else if(event == MapViewDelegateEventDidClickedMapBlank){
+                [weakself requestData];
             }
         };
     }
@@ -147,5 +150,11 @@
         _mapInfoBar.searchKeyModel = self.searchKeyModel;
     }
     return _mapInfoBar;
+}
+
+- (void)dealloc{
+    NSLog(@"dealloc mapViewController");
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:MapViewDidChangeDesType object:nil];
+    self.mapViewManager.mapView = nil;
 }
 @end

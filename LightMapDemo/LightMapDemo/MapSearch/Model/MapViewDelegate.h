@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Utils/BMKGeometry.h>
 #import "MapViewTargetProtocol.h"
 #import "MapSearchKeyModel.h"
+
 typedef enum : NSUInteger {
     MapViewDelegateEventDidFinishLoading = 0,
     MapViewDelegateEventDidChangeRegion = 1,

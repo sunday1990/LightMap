@@ -72,4 +72,55 @@ singletonImplementation(MapViewManager)
     [self category_addAnnotations];
     
 }
+
+/**
+ 隐藏百度地图的logo
+ */
+- (void)hideBaiduMapLogo{
+    /*隐藏图标*/
+    id mapViewClass = NSClassFromString(@"MapView");
+    for (UIView *subView in _mapView.subviews) {
+        if ([subView isKindOfClass:[mapViewClass class]]) {
+            for (UIView *subclassView in subView.subviews) {
+                if ([subclassView isKindOfClass:[UIImageView class]]) {
+                    if (subclassView.tag == 0) {
+                        subclassView.hidden = YES;
+                        
+                    }
+                }
+                
+            }
+            
+        }
+    }
+}
+
+/**
+ 显示百度地图的logo
+ */
+- (void)showBaiduMapLogo{
+    /*隐藏图标*/
+    id mapViewClass = NSClassFromString(@"MapView");
+    for (UIView *subView in _mapView.subviews) {
+        if ([subView isKindOfClass:[mapViewClass class]]) {
+            for (UIView *subclassView in subView.subviews) {
+                if ([subclassView isKindOfClass:[UIImageView class]]) {
+                    if (subclassView.tag == 0) {
+                        subclassView.hidden = NO;
+                        
+                    }
+                }
+                
+            }
+            
+        }
+    }
+}
+
+- (void)dealloc{
+    NSLog(@"dealloc mapviewManager");
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:MapViewShouldRemoveAllAnnotations object:nil];
+}
+
+
 @end

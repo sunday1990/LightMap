@@ -45,4 +45,16 @@ singletonInterface(MapViewManager)
  */
 - (void)addAnnotations;
 
+
+/**
+ 隐藏百度地图的logo
+ */
+- (void)hideBaiduMapLogo;
+
+/**
+ 显示百度地图的logo
+ */
+- (void)showBaiduMapLogo;
+
+
 @end

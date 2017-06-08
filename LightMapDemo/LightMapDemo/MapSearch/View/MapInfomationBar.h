@@ -17,8 +17,3 @@
 - (void)update;
 
 @end
-//@interface MVPaopaoView : UIView
-
-//-(void)initWithJJR:(CGRect)frame target:(id)target;
-//-(void)updateWithJJR:(NSObject*)model;
-
