@@ -46,17 +46,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view addSubview:self.mapViewManager.mapView];
-    [self.view addSubview:self.mapInfoBar];
+//    [self.view addSubview:self.mapInfoBar];
     
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.mapViewManager.mapView.delegate = self.mapViewDelegate;    // 此处记得不用的时候需要置nil，否则影响内存的释放
-//进入全屏模式
-//    [UIView  map_animationsToFullScreen(0.5)];
-//退出全屏模式
-//    [UIView map_animationsExitFullScreen(0.5) map_AnimationFinished];
 }
 
 -(void)viewWillDisappear:(BOOL)animated

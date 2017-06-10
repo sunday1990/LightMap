@@ -42,8 +42,8 @@
 }
 
 - (void)operationWithMapView:(BMKMapView *)mapView delegateEvent:(MapViewDelegateEvent)event{
-    
     BMKCoordinateRegion mreg = mapView.region;
+
     self.searchKeyModel.coordinateRange = mreg;
     
     if (self.reloadBlock) {
@@ -84,24 +84,22 @@
     }
 }
 
-
-
 /****************根据overlay生成对应的View****************/
 - (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay
 {
     if ([overlay isKindOfClass:[MapBasePolygon class]]) {
         MapBasePolygonView* polygonView = [[MapBasePolygonView alloc] initWithOverlay:overlay];
         polygonView.strokeColor = [[UIColor alloc] initWithRed:0.0 green:0 blue:0.5 alpha:1];
-        polygonView.fillColor = [[UIColor alloc] initWithRed:1 green:1 blue:1 alpha:0.9];
+        polygonView.fillColor = [[UIColor alloc] initWithRed:1 green:1 blue:1 alpha:0.3];
         polygonView.lineWidth = 0.5;
         polygonView.lineDash = YES;
         return polygonView;
     }else if([overlay isKindOfClass:[BMKPolygon class]]){
         BMKPolygonView* polygonView = [[BMKPolygonView alloc] initWithOverlay:overlay];
-        polygonView.strokeColor = [[UIColor alloc] initWithRed:0.0 green:0 blue:0.5 alpha:1];
+        polygonView.strokeColor = [[UIColor alloc] initWithRed:1 green:0 blue:0 alpha:1];
         polygonView.fillColor = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:0.6];
         polygonView.alpha = 0.7;
-        polygonView.lineWidth = 0.5;
+        polygonView.lineWidth = 1;
         polygonView.lineDash = YES;
         return polygonView;
     }else{

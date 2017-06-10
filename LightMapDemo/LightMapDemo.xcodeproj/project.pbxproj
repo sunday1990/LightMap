@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		161107C81EE8EA890043B77E /* MapBasePolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 161107C71EE8EA890043B77E /* MapBasePolygon.m */; };
 		161107CF1EE8EF960043B77E /* MapBasePolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 161107CE1EE8EF960043B77E /* MapBasePolygonView.m */; };
+		16AF0D851EEB8FEC0064D992 /* Location.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16AF0D841EEB8FEC0064D992 /* Location.plist */; };
 		16BCAD4B1ED46DA100EB1A38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD4A1ED46DA100EB1A38 /* main.m */; };
 		16BCAD4E1ED46DA100EB1A38 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD4D1ED46DA100EB1A38 /* AppDelegate.mm */; };
 		16BCAD511ED46DA100EB1A38 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD501ED46DA100EB1A38 /* ViewController.m */; };
@@ -55,6 +56,7 @@
 		161107C71EE8EA890043B77E /* MapBasePolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapBasePolygon.m; sourceTree = "<group>"; };
 		161107CD1EE8EF960043B77E /* MapBasePolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapBasePolygonView.h; sourceTree = "<group>"; };
 		161107CE1EE8EF960043B77E /* MapBasePolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapBasePolygonView.m; sourceTree = "<group>"; };
+		16AF0D841EEB8FEC0064D992 /* Location.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Location.plist; sourceTree = "<group>"; };
 		16BCAD461ED46DA100EB1A38 /* LightMapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightMapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BCAD4A1ED46DA100EB1A38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		16BCAD4C1ED46DA100EB1A38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,13 +142,13 @@
 			name = "多边形标注";
 			sourceTree = "<group>";
 		};
-		161107CA1EE8EA990043B77E /* 其他 */ = {
+		161107CA1EE8EA990043B77E /* 数据层model */ = {
 			isa = PBXGroup;
 			children = (
 				16BCAD881ED46E9B00EB1A38 /* MapSearchKeyModel.h */,
 				16BCAD891ED46E9B00EB1A38 /* MapSearchKeyModel.m */,
 			);
-			name = "其他";
+			name = "数据层model";
 			sourceTree = "<group>";
 		};
 		161107CB1EE8EAA10043B77E /* 动画与协议 */ = {
@@ -165,6 +167,33 @@
 				16BCAD8B1ED46E9B00EB1A38 /* MapViewDelegate.m */,
 			);
 			name = "代理";
+			sourceTree = "<group>";
+		};
+		161107D01EE8F70D0043B77E /* 多边形标注视图 */ = {
+			isa = PBXGroup;
+			children = (
+				161107CD1EE8EF960043B77E /* MapBasePolygonView.h */,
+				161107CE1EE8EF960043B77E /* MapBasePolygonView.m */,
+			);
+			name = "多边形标注视图";
+			sourceTree = "<group>";
+		};
+		161107D11EE8F71A0043B77E /* 普通标注视图 */ = {
+			isa = PBXGroup;
+			children = (
+				16BCADB01ED4F64200EB1A38 /* MapAnnotationView.h */,
+				16BCADB11ED4F64200EB1A38 /* MapAnnotationView.m */,
+			);
+			name = "普通标注视图";
+			sourceTree = "<group>";
+		};
+		161107D21EE8F7270043B77E /* 其他 */ = {
+			isa = PBXGroup;
+			children = (
+				16BCADA61ED4817C00EB1A38 /* MapInfomationBar.h */,
+				16BCADA71ED4817C00EB1A38 /* MapInfomationBar.m */,
+			);
+			name = "其他";
 			sourceTree = "<group>";
 		};
 		16BCAD3D1ED46DA100EB1A38 = {
@@ -214,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				16BCAD4A1ED46DA100EB1A38 /* main.m */,
+				16AF0D841EEB8FEC0064D992 /* Location.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -295,7 +325,7 @@
 			children = (
 				161107CC1EE8EAAE0043B77E /* 代理 */,
 				161107CB1EE8EAA10043B77E /* 动画与协议 */,
-				161107CA1EE8EA990043B77E /* 其他 */,
+				161107CA1EE8EA990043B77E /* 数据层model */,
 				161107C91EE8EA900043B77E /* 多边形标注 */,
 			);
 			path = Model;
@@ -304,12 +334,9 @@
 		16BCAD821ED46E4600EB1A38 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				161107CD1EE8EF960043B77E /* MapBasePolygonView.h */,
-				161107CE1EE8EF960043B77E /* MapBasePolygonView.m */,
-				16BCADA61ED4817C00EB1A38 /* MapInfomationBar.h */,
-				16BCADA71ED4817C00EB1A38 /* MapInfomationBar.m */,
-				16BCADB01ED4F64200EB1A38 /* MapAnnotationView.h */,
-				16BCADB11ED4F64200EB1A38 /* MapAnnotationView.m */,
+				161107D21EE8F7270043B77E /* 其他 */,
+				161107D11EE8F71A0043B77E /* 普通标注视图 */,
+				161107D01EE8F70D0043B77E /* 多边形标注视图 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,6 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16BCAD591ED46DA100EB1A38 /* LaunchScreen.storyboard in Resources */,
+				16AF0D851EEB8FEC0064D992 /* Location.plist in Resources */,
 				16BCAD561ED46DA100EB1A38 /* Assets.xcassets in Resources */,
 				16BCAD541ED46DA100EB1A38 /* Main.storyboard in Resources */,
 			);
