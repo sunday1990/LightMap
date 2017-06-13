@@ -142,7 +142,7 @@ singletonImplementation(MapViewManager)
  显示百度地图的logo
  */
 - (void)showBaiduMapLogo{
-    /*隐藏图标*/
+    /*显示图标*/
     id mapViewClass = NSClassFromString(@"MapView");
     for (UIView *subView in _mapView.subviews) {
         if ([subView isKindOfClass:[mapViewClass class]]) {
