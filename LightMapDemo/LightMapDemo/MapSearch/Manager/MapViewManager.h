@@ -55,6 +55,15 @@ singletonInterface(MapViewManager)
  显示百度地图的logo
  */
 - (void)showBaiduMapLogo;
+/**
+ 阻尼效果改变地图等级
+ 
+ @param currentLevel  当前的等级
+ @param settingLevel  要设定的等级
+ */
+- (void)dampZoomingMapLevelFromCurrentValue:(float)currentLevel
+                          ToSettingValue:(float)settingLevel;
+
 
 
 @end

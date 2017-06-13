@@ -291,9 +291,9 @@
 			isa = PBXGroup;
 			children = (
 				16BCAD7F1ED46E4600EB1A38 /* Controller */,
-				16BCAD811ED46E4600EB1A38 /* Model */,
 				16BCAD801ED46E4600EB1A38 /* Manager */,
 				16BCAD821ED46E4600EB1A38 /* View */,
+				16BCAD811ED46E4600EB1A38 /* Model */,
 			);
 			path = MapSearch;
 			sourceTree = "<group>";

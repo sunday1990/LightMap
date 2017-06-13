@@ -10,9 +10,15 @@
 #import "MapViewManager+Annotations.h"
 #import "MyControl.h"
 #import "MapNetWorkManager.h"
+/*地图缩放的时间*/
+#define MAP_ZOOM_DURATION  0.6
+/*地图从一个级别缩放另一个级别，地图的拆分次数*/
+#define MAP_ZOOM_NUMS      10.0
+
 NSString * const MapViewDidChangeDesType = @"com.lightMapDemo.mapViewManager.desTypeDidChanged";
 
 @implementation MapViewManager
+
 singletonImplementation(MapViewManager)
 
 - (id)init{
@@ -45,7 +51,25 @@ singletonImplementation(MapViewManager)
 - (void)initializeCurrentlocBtn{
     self.currentLocBtn=[MyControl createButtonWithFrame:CGRectMake(12,HEIGHT-12-30, 30, 30) ImageName:@"mapPagepositioning" Target:self Action:@selector(backToGeographOfCurrent) Title:nil];
     [_mapView addSubview:self.currentLocBtn];
+   
+    UIButton *btnZoomOut = [MyControl createButtonWithFrame:CGRectMake(12,HEIGHT-UI_TAB_BAR_HEIGHT-12-72, 30, 30) ImageName:@"mapPageZoomIn" Target:self Action:@selector(btnZoomClicked:) Title:nil];
+    btnZoomOut.tag = 100;
+    [_mapView addSubview:btnZoomOut];
+  
+    UIButton *btnZoomIn = [MyControl createButtonWithFrame:CGRectMake(12,HEIGHT-UI_TAB_BAR_HEIGHT-12-102, 30, 30) ImageName:@"mapPageZoomOut" Target:self Action:@selector(btnZoomClicked:) Title:nil];
+    btnZoomIn.tag = 200;
+    [_mapView addSubview:btnZoomIn];
 }
+
+-(void)btnZoomClicked:(UIButton*)btn
+{
+    if( btn.tag == 100 ){
+        [self dampZoomingMapLevelFromCurrentValue:self.mapView.zoomLevel ToSettingValue:self.mapView.zoomLevel-1];
+    }else{
+        [self dampZoomingMapLevelFromCurrentValue:self.mapView.zoomLevel ToSettingValue:self.mapView.zoomLevel+1];
+    }
+}
+
 
 #pragma mark 点击回到我当前所在的地理位置
 -(void)backToGeographOfCurrent{
@@ -57,6 +81,25 @@ singletonImplementation(MapViewManager)
 
 }
 
+/**
+ 阻尼效果改变地图等级
+ 
+ @param currentLevel  当前的等级
+ @param settingLevel  要设定的等级
+ */
+
+- (void)dampZoomingMapLevelFromCurrentValue:(float)currentLevel
+                             ToSettingValue:(float)settingLevel{
+    float unitZoomLevelDuringTime = MAP_ZOOM_DURATION/MAP_ZOOM_NUMS;
+    float unitZoomLevelIncrement = (settingLevel - currentLevel)/MAP_ZOOM_NUMS;
+    for (int i = 1; i<=MAP_ZOOM_NUMS; i++) {
+        float tempZoomLevel = currentLevel+i*unitZoomLevelIncrement;
+        dispatch_time_t time =  dispatch_time(DISPATCH_TIME_NOW, (uint64_t)(NSEC_PER_SEC * (i*unitZoomLevelDuringTime)));
+        dispatch_after(time, dispatch_get_main_queue(), ^{
+            [_mapView setZoomLevel:tempZoomLevel];
+        });
+    }
+}
 
 /**
  移除标注
