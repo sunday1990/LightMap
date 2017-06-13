@@ -10,9 +10,9 @@
 #import "MapViewManager+Annotations.h"
 #import "MyControl.h"
 #import "MapNetWorkManager.h"
-/*地图缩放的时间*/
-#define MAP_ZOOM_DURATION  0.6
-/*地图从一个级别缩放另一个级别，地图的拆分次数*/
+/*定义地图缩放的持续时长*/
+#define MAP_ZOOM_DURATION  1.0
+/*地图从一个级别缩放至另一个级别，地图的缩放总次数*/
 #define MAP_ZOOM_NUMS      10.0
 
 NSString * const MapViewDidChangeDesType = @"com.lightMapDemo.mapViewManager.desTypeDidChanged";

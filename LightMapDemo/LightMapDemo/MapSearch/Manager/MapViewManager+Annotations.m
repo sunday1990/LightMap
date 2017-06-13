@@ -33,7 +33,7 @@
     NSInteger count = self.searchKeyModel.resultArray.count;
     for (int i = 0; i<count; i++) {
         BMKPointAnnotation *annotation = [self.searchKeyModel.resultArray objectAtIndex:i];//annotation模型可以为自定义的
-        [self.mapView addAnnotation:annotation];
+//        [self.mapView addAnnotation:annotation];
     }
     [self addMapPolygons];
 }
