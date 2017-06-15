@@ -17,8 +17,6 @@ FOUNDATION_EXPORT NSString * const MapViewDidChangeDesType;
 @interface MapViewManager : NSObject
 singletonInterface(MapViewManager)
 
-@property (nonatomic,copy)void (^methodHookedBlock)(id<AspectInfo>,...);
-
 /**
  BaiduMapView
  */

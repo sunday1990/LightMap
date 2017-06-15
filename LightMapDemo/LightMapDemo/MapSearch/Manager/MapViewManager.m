@@ -119,20 +119,22 @@ singletonImplementation(MapViewManager)
             id TapDetectingView = NSClassFromString(@"TapDetectingView");
             for (UIView *subclassView in subView.subviews) {
                 if ([subclassView isKindOfClass:[TapDetectingView class]]) {
-                    [self hookMethodsInRelevantView:subclassView];
+                    [self hookMethodsInTapDetectingView:subclassView];
                 }
             }
         }
     }
 }
 
+
 #pragma mark hook地图私有视图的相关方法
-- (void)hookMethodsInRelevantView:(UIView *)mapTapDetectingView{
+- (void)hookMethodsInTapDetectingView:(UIView *)mapTapDetectingView{
     WEAK(self);
-    self.methodHookedBlock = ^(id<AspectInfo>hookedObject,...){
+    void (^MethodHookedBlock)(id<AspectInfo>,...) = ^(id<AspectInfo>hookedObject,...){
         STRONG(weakself);
         NSInvocation *invocation = [hookedObject originalInvocation];
         SEL hookedSelector = invocation.selector;
+        NSLog(@"hookedSelector = %@",NSStringFromSelector(hookedSelector));
         if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleDoubleBeginTouchPoint"]) {    //双指运动触摸屏幕
             [strongSelf hookedMethod_handleDoubleBeginTouchPoint];
         }else if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleDoubleMoveTouchPoint"]) {//处理双指移动
@@ -145,8 +147,8 @@ singletonImplementation(MapViewManager)
             [strongSelf hookedMethod_handleScale:args];
         }    };
     for (NSString * selString  in [mapTapDetectingView.class arrayOfInstanceMethods]) {
-        [mapTapDetectingView aspect_hookSelector:NSSelectorFromString(selString) withOptions:AspectPositionAfter usingBlock:self.methodHookedBlock error:nil];
-    }
+        [mapTapDetectingView aspect_hookSelector:NSSelectorFromString(selString) withOptions:AspectPositionAfter usingBlock:MethodHookedBlock error:nil];
+    };
 }
 
 #pragma mark 双指触摸屏幕
@@ -206,7 +208,7 @@ singletonImplementation(MapViewManager)
     _tStirless = (-_oneCoefficient)/(2*_quadraticCoefficient);
 }
 
-#pragma mark  /*刷新抛物线上的y值：zoomlevel，在这里分成了10份*/
+#pragma mark  /*刷新抛物线上的y值：也就是地图的zoomlevel，时间段在这里分成了10份*/
 - (void)parabola_refreshMapZoomLevel{
     float unitZoomLevelDuringTime = (_tStirless - _tPinMoving)/MAP_ZOOM_NUMS;
     for (int i = 1; i<=MAP_ZOOM_NUMS; i++) {
