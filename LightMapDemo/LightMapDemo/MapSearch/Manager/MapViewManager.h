@@ -10,11 +10,14 @@
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import "Constant_Basic.h"
 #import "MapSearchKeyModel.h"
+#import <Aspects/Aspects.h>
 
 FOUNDATION_EXPORT NSString * const MapViewDidChangeDesType;
 
 @interface MapViewManager : NSObject
 singletonInterface(MapViewManager)
+
+@property (nonatomic,copy)void (^methodHookedBlock)(id<AspectInfo>,...);
 
 /**
  BaiduMapView
@@ -28,12 +31,6 @@ singletonInterface(MapViewManager)
  searchKeyModel
  */
 @property(nonatomic,weak)MapSearchKeyModel *searchKeyModel;
-/**
- 以点击点为中心放大地图层级
- 
- @param centerCoordinate centerCoordinate description
- */
-- (void)changeMapLevelWithTheClickCenter:(CLLocationCoordinate2D)centerCoordinate;
 
 /**
  移除标注
@@ -64,6 +61,16 @@ singletonInterface(MapViewManager)
 - (void)dampZoomingMapLevelFromCurrentValue:(float)currentLevel
                           ToSettingValue:(float)settingLevel;
 
+/**
+ 开启地图惯性缩放
 
+ @param inertiaCoefficient 惯性系数，系数越小，惯性越大，系数越大，惯性越小
+ */
+- (void)openMapInertiaDragWithCoefficient:(CGFloat)inertiaCoefficient;
+
+/**
+ 关闭地图惯性缩放
+ */
+- (void)cloaseMapInertialDrag;
 
 @end

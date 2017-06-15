@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F0B12F4C254B75D9F2EFD86EE05F469F'
-               BlueprintName = 'Pods-LightMapDemo'
+               BlueprintIdentifier = 'C7C5FD310966070D9553E5B95C59641B'
+               BlueprintName = 'Aspects'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-LightMapDemo.a'>
+               BuildableName = 'libAspects.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -15,7 +15,6 @@
 #import "MapViewDelegate.h"
 #import "MapInfomationBar.h"
 #import "MapAnimationDefines.h"
-
 @interface MapViewController ()<MapViewTargetProtocol>
 /**
  操作mapview
@@ -46,7 +45,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view addSubview:self.mapViewManager.mapView];
-//    [self.view addSubview:self.mapInfoBar];
     
 }
 
@@ -90,7 +88,6 @@
     [alertVc addAction:action];
     [self presentViewController:alertVc animated:YES completion:nil];
     [UIView map_animationsToFullScreen(0.5)];
-
 }
 
 /*
@@ -108,6 +105,7 @@
     _mapViewManager = [MapViewManager sharedMapViewManager];
     _mapViewManager.searchKeyModel = self.searchKeyModel;
     [_mapViewManager hideBaiduMapLogo];
+    [_mapViewManager openMapInertiaDragWithCoefficient:8.0];
     return _mapViewManager;
 }
 

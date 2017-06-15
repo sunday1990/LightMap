@@ -30,17 +30,17 @@
 }
 
 - (void)category_addAnnotations{
+    
     NSInteger count = self.searchKeyModel.resultArray.count;
     for (int i = 0; i<count; i++) {
         BMKPointAnnotation *annotation = [self.searchKeyModel.resultArray objectAtIndex:i];//annotation模型可以为自定义的
-//        [self.mapView addAnnotation:annotation];
+        [self.mapView addAnnotation:annotation];
     }
     [self addMapPolygons];
 }
 
 - (void)addMapPolygons{
 #pragma mark 没有雾霾
-
     /*添加底部阴影区域*/
     CLLocationCoordinate2D * coors0 = (CLLocationCoordinate2D *)malloc(17 * sizeof(CLLocationCoordinate2D));
     /*添加屏幕左下角的S1点*/
