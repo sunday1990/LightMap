@@ -29,10 +29,9 @@ NSString * const MapViewShouldRemoveAllAnnotations = @"com.lightMapDemo.mapNetWo
         successCallBack();
     }
     return;
-    
     NSDictionary *param = [searchKeyModel searchKeyModel_getRequestParams];
     NSString *url = @"www.baidu.com";
-    //发起网络请求
+    //发起网络请求 Do Your NetWork 
 }
 
 @end

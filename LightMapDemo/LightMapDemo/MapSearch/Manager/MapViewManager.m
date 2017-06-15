@@ -26,18 +26,18 @@ NSString * const MapViewDidChangeDesType = @"com.lightMapDemo.mapViewManager.des
 /*以下全局变量全部跟地图惯性运动相关*/
     
     //记录两个时间tStart与tEnd
-    NSTimeInterval _tStart;
-    NSTimeInterval _tEnd;
-    //记录双指在地图上的的捏合时间。                   _tPinMoving =  _tEnd - _tStart;
+    NSTimeInterval _tPinStart;
+    NSTimeInterval _tPinEnd;
+    //记录双指在地图上的的捏合时间。                   _tPinMoving =  _tPinStart - _tPinStart;
     NSTimeInterval _tPinMoving;
     //惯性运动停止，速度为0(也就是静止)时候的时间。      _tStirless-_tPinMoving可以得出手指离开后，惯性运动的时长
     NSTimeInterval _tStirless;
     
     
     //记录zoomLevelStart
-    float _zoomLevelStart;
+    float _zoomLevelPinStart;
     //记录zoomLevelEnd
-    float _zoomLevelEnd;
+    float _zoomLevelPinEnd;
     //惯性运动停止，速度为0(也就是静止)时候的zoomLevel
     float _zoomLevelStirless;
     
@@ -101,7 +101,7 @@ singletonImplementation(MapViewManager)
 
 #pragma mark 关闭地图惯性缩放
 - (void)cloaseMapInertialDrag{
-
+//codes: ...
 
 }
 
@@ -137,9 +137,9 @@ singletonImplementation(MapViewManager)
         if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleDoubleBeginTouchPoint"]) {    //双指运动触摸屏幕
             //TODO:
             NSLog(@"双指触摸屏幕");
-            _zoomLevelStart = weakself.mapView.zoomLevel;
+            _zoomLevelPinStart = weakself.mapView.zoomLevel;
             NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
-            _tStart =[dat timeIntervalSince1970];
+            _tPinStart =[dat timeIntervalSince1970];
             [weakself.scaleArray removeAllObjects];
             
         }else if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleDoubleMoveTouchPoint"]) {//处理双指移动
@@ -149,16 +149,14 @@ singletonImplementation(MapViewManager)
             //TODO:在这个方法里添加惯性效果。
             NSLog(@"双指移动结束");
             NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
-            _tEnd =[dat timeIntervalSince1970];
-            _zoomLevelEnd = weakself.mapView.zoomLevel;
-            /*
-             计算方程
-             求出斜率为0的时间点，并计算双指离开后还要继续运动的时间tContinue，和此时对应的mapZoom
-             将tContunue等分成10分。得到对应抛物线上的mapLevel。然后进行设置，模拟
-             */
+            _tPinStart =[dat timeIntervalSince1970];
+            _zoomLevelPinEnd = weakself.mapView.zoomLevel;
+            /*1、根据两个点坐标(0,_zoomLevelPinStart)和(_tPinMoving,_zoomLevelPinEnd)和二次项系数可以得到对应的抛物线方程。也就是可以求得一次项系数与常数项的值*/
             [weakself parabola_calculateOneCoefficient];
             [weakself parabola_calculateConstantCoefficient];
+            /*2、求出该抛物线的顶点，也就是速度为0的点，在顶点处，地图停止运动，计算该点的时间_tStirless，这个_tStirless就是双指离开后，地图的惯性运动时间。*/
             [weakself parabola_calculateStirlessTime];
+            /*3、最后将上一步得到的惯性运动时长_tStirless减去手指移开时候的时间_tPinEnd，再将这个差值分成10份，根据抛物线方程依次计算对应时间的level值，调用mapView的setZoomLevel方法*/
             [weakself parabola_refreshMapZoomLevel];
         }else if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleScale:"]){//"handleScale: 手动改变地图的缩放等级的触发事件
             @autoreleasepool {
@@ -171,8 +169,8 @@ singletonImplementation(MapViewManager)
                 [weakself.scaleArray addObject:args[0]];
             }
     
-        }else if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleMoveTouchPoint"]){
-            NSLog(@"handleMoveTouchPoint");
+        }else{
+            NSLog(@"others");
         }
     };
     for (NSString * selString  in [self.mapTapDetectingView.class arrayOfInstanceMethods]) {
@@ -182,35 +180,37 @@ singletonImplementation(MapViewManager)
 
 /*计算抛物线的一次项系数*/
 - (void)parabola_calculateOneCoefficient{
-    _tPinMoving = _tEnd - _tStart;
-    _oneCoefficient = ((_zoomLevelEnd-_zoomLevelStart) - _quadraticCoefficient * (_tPinMoving * _tPinMoving))/(_tPinMoving);
+    _tPinMoving = _tPinStart - _tPinStart;
+    _oneCoefficient = ((_zoomLevelPinEnd-_zoomLevelPinStart) - _quadraticCoefficient * (_tPinMoving * _tPinMoving))/(_tPinMoving);
 }
 
-/*计算抛物线的常数项*/
+/*计算抛物线常数项的值*/
 - (void)parabola_calculateConstantCoefficient{
     
-    _constantCoefficient = _zoomLevelStart;
+    _constantCoefficient = _zoomLevelPinStart;
 
 }
+
 /*计算抛物线速度为0（也就是静止）的时间*/
 - (void)parabola_calculateStirlessTime{
     _tStirless = (-_oneCoefficient)/(2*_quadraticCoefficient);
     NSLog(@"_tStirless=%f",_tStirless - _tPinMoving);
 }
+
 /*刷新抛物线上的y值：zoomlevel，在这里分成了10份*/
 - (void)parabola_refreshMapZoomLevel{
     float unitZoomLevelDuringTime = (_tStirless - _tPinMoving)/MAP_ZOOM_NUMS;
     for (int i = 1; i<=MAP_ZOOM_NUMS; i++) {
-        float tempZoomLevel = [self parabola_calculateMapZoomLevelAtTime:_tPinMoving+i*unitZoomLevelDuringTime];
+        float tempZoomLevel = [self parabola_calculateMapZoomLevelAtRealTime:_tPinMoving+i*unitZoomLevelDuringTime];
         dispatch_time_t time =  dispatch_time(DISPATCH_TIME_NOW, (uint64_t)(NSEC_PER_SEC * (i*unitZoomLevelDuringTime)));
         dispatch_after(time, dispatch_get_main_queue(), ^{
             [_mapView setZoomLevel:tempZoomLevel];
         });
     }
 }
-/*实时计算抛物线上对应time的maplevel*/
-- (CGFloat)parabola_calculateMapZoomLevelAtTime:(float)tempTime{
-    return _quadraticCoefficient *(tempTime *tempTime) + _oneCoefficient * tempTime + _zoomLevelStart;
+/*实时计算抛物线上time所对应的maplevel*/
+- (CGFloat)parabola_calculateMapZoomLevelAtRealTime:(float)realTime{
+    return _quadraticCoefficient *(realTime *realTime) + _oneCoefficient * realTime + _zoomLevelPinStart;
 }
 
 #pragma mark 加减号点击事件
