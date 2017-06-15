@@ -28,6 +28,7 @@
 #define GetFont(x) [UIFont systemFontOfSize:x]
 #define WEAK(object)        __weak typeof(object) weak##object = object;
 #define BLOCK(object)       __block typeof(object) block##object = object;
+#define STRONG(object)     __strong __typeof(object)strongSelf = object;
 //提示框--->UIAlertController
 #define ALERT_VIEW(Title,Message,Controller) {UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:Title message:Message preferredStyle:UIAlertControllerStyleAlert];        [alertVc addAction:action];[Controller presentViewController:alertVc animated:YES completion:nil];}
 

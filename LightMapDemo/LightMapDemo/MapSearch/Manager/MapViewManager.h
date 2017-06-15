@@ -66,7 +66,7 @@ singletonInterface(MapViewManager)
 
  @param inertiaCoefficient 惯性系数，系数越小，惯性越大，系数越大，惯性越小
  */
-- (void)openMapInertiaDragWithCoefficient:(CGFloat)inertiaCoefficient;
+- (void)openMapInertiaDragWithCoefficient:(float)inertiaCoefficient;
 
 /**
  关闭地图惯性缩放
