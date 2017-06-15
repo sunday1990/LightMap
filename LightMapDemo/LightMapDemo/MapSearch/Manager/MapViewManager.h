@@ -59,7 +59,7 @@ singletonInterface(MapViewManager)
  @param settingLevel  要设定的等级
  */
 - (void)dampZoomingMapLevelFromCurrentValue:(float)currentLevel
-                          ToSettingValue:(float)settingLevel;
+                             ToSettingValue:(float)settingLevel;
 
 /**
  开启地图惯性缩放
