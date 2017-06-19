@@ -17,10 +17,10 @@
  名称：西城区-----lat:39.91229800000000000-----lng:116.36463200000000000
  名称：丰台区-----lat:39.84195800000000000-----lng:116.27251700000000000
  */
-
 #import "MapViewManager+Annotations.h"
 #import "MapBasePolygon.h"
-
+#import "TestPolygonModel.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 @implementation MapViewManager (Annotations)
 - (void)category_removeAllAnnotations{
     [self.mapView removeAnnotations:self.mapView.annotations];
@@ -40,6 +40,75 @@
 }
 
 - (void)addMapPolygons{
+#pragma mark 算法实现
+    /*从self.locationArray中获取数据进行展示，存储的model是TestPolygonModel*/
+    /*1、获取需要malloc的内存区域，由以下几个部分组成:
+     1st:  6个屏幕点
+     2st:  self.locationArray.count*2 - 1       计算每一个起点被加的次数，减一是因为最后一个数组的第一个点只需要加两遍，其他的都是三遍
+     3st:  self.locationArray子数组中元素的个数和
+     */
+    NSInteger mallocCount = 0;
+    NSInteger itemCount = 0;
+    NSInteger itemIndex = 0;
+    for (int i = 0; i<self.locationArray.count; i++) {
+        itemCount = itemCount + [self.locationArray[i] count];
+    }
+    mallocCount = 6 + self.locationArray.count * 2 - 1 + itemCount;
+    /*2、循环计算，先无论是不是最后一个数组，都依次将该数组的点加进去，加完后再加一遍一开始的点。判断是不是最后一个数组，如果是的话，需要倒叙插入第一个点，*/
+    CLLocationCoordinate2D * coors = (CLLocationCoordinate2D *)malloc(mallocCount * sizeof(CLLocationCoordinate2D));
+    /*添加屏幕左下角的S1点*/
+    coors[0].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta*1.5;
+    coors[0].latitude = self.mapView.region.center.latitude-self.mapView.region.span.latitudeDelta*1.5;
+    /*正序添加每一组的元素*/
+    for (int i = 0; i < self.locationArray.count; i++) {
+        NSArray *polygonArray = self.locationArray[i];
+        for (int j = 0; j<polygonArray.count; j++) {
+            TestPolygonModel *polygonModel = self.locationArray[i][j];                      //获取model
+            itemIndex++;
+            coors[itemIndex].longitude = [polygonModel.lng floatValue];
+            coors[itemIndex].latitude = [polygonModel.lat floatValue];
+        }
+        //添加完每一组的元素后，需要再添加一遍该组的第一个点，
+        itemIndex ++;
+        TestPolygonModel *startPolygon = polygonArray[0];
+        coors[itemIndex].latitude = [startPolygon.lat floatValue];
+        coors[itemIndex].longitude = [startPolygon.lng floatValue];
+    }
+    /*倒叙添加每一组的第一个元素，除了最后一个组不需要添加*/
+    for (NSInteger i = self.locationArray.count - 1; i>0; i--) {
+        itemIndex ++;
+        TestPolygonModel *startPolygon = self.locationArray[i-1][0];                      //获取model
+        coors[itemIndex].latitude = [startPolygon.lat floatValue];
+        coors[itemIndex].longitude = [startPolygon.lng floatValue];
+    }
+    /*再次添加屏幕的起点*/
+    itemIndex ++;
+    coors[itemIndex].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta*1.5;
+    coors[itemIndex].latitude = self.mapView.region.center.latitude-self.mapView.region.span.latitudeDelta*1.5;
+    /*添加屏幕右下角的S2点*/
+    itemIndex ++;
+    coors[itemIndex].longitude = self.mapView.region.center.longitude+self.mapView.region.span.longitudeDelta*1.5;
+    coors[itemIndex].latitude = self.mapView.region.center.latitude-self.mapView.region.span.latitudeDelta*1.5;
+    /*添加屏幕右上角的S3点*/
+    itemIndex ++;
+    coors[itemIndex].longitude = self.mapView.region.center.longitude+self.mapView.region.span.longitudeDelta*1.5;
+    coors[itemIndex].latitude = self.mapView.region.center.latitude+self.mapView.region.span.latitudeDelta*1.5;
+    /*添加屏幕左上角的S4点*/
+    itemIndex ++;
+    coors[itemIndex].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta*1.5;
+    coors[itemIndex].latitude = self.mapView.region.center.latitude+self.mapView.region.span.latitudeDelta*1.5;
+    /*再次添加屏幕左下角的S1点*/
+    itemIndex ++;
+    coors[itemIndex].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta*1.5;
+    coors[itemIndex].latitude = self.mapView.region.center.latitude-self.mapView.region.span.latitudeDelta*1.5;
+    if (mallocCount == itemIndex+1) {
+        BMKPolygon *polygonModel0 = [BMKPolygon polygonWithCoordinates:coors count:mallocCount];
+        [self.mapView addOverlay:polygonModel0];
+    }else{
+        [SVProgressHUD showErrorWithStatus:@"计算错误"];
+    }
+    return;
+    
 #pragma mark 没有雾霾
     /*添加底部阴影区域*/
     CLLocationCoordinate2D * coors0 = (CLLocationCoordinate2D *)malloc(17 * sizeof(CLLocationCoordinate2D));
@@ -61,7 +130,6 @@
     /*再次添加矩形区域A左下角的A1点，构成一个闭环，此时A1点被添加两遍*/
     coors0[5].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta/4;
     coors0[5].latitude = self.mapView.region.center.latitude-self.mapView.region.span.latitudeDelta/4;
-   
     /*添加不规则区域B的起点B1点*/
     coors0[6].longitude = 116.28248 ;//海淀区
     coors0[6].latitude = 40.0096690;
@@ -86,19 +154,19 @@
     /*添加屏幕右下角的S2点*/
     coors0[13].longitude = self.mapView.region.center.longitude+self.mapView.region.span.longitudeDelta*1.5;
     coors0[13].latitude = self.mapView.region.center.latitude-self.mapView.region.span.latitudeDelta*1.5;
-    /*添加屏幕右下角的S2点*/
+    /*添加屏幕右上角的S3点*/
     coors0[14].longitude = self.mapView.region.center.longitude+self.mapView.region.span.longitudeDelta*1.5;
     coors0[14].latitude = self.mapView.region.center.latitude+self.mapView.region.span.latitudeDelta*1.5;
-    /*添加屏幕右上角的S3点*/
+    /*添加屏幕左上角的S4点*/
     coors0[15].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta*1.5;
     coors0[15].latitude = self.mapView.region.center.latitude+self.mapView.region.span.latitudeDelta*1.5;
-    /*添加屏幕左上角的S4点*/
+    /*添加屏幕左下角的S1点，此时S1点被添加三遍，屏幕边界点也最多被添加三遍*/
     coors0[16].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta*1.5;
     coors0[16].latitude = self.mapView.region.center.latitude-self.mapView.region.span.latitudeDelta*1.5;
 
     BMKPolygon *polygonModel0 = [BMKPolygon polygonWithCoordinates:coors0 count:17];
     [self.mapView addOverlay:polygonModel0];
-    
+    return;
 #pragma mark 有雾霾
     /*
      //添加底部阴影
@@ -126,14 +194,10 @@
     coors1[3].latitude = 39.957906;
     coors1[4].longitude = 116.419344;
     coors1[4].latitude = 39.923622;
-    
     MapBasePolygon *polygonModel = [[MapBasePolygon alloc] init];
-    
     [polygonModel polygonWithCoords:coors1 count:5];
-    
     [self.mapView addOverlay:polygonModel];
 */
 }
-
 
 @end

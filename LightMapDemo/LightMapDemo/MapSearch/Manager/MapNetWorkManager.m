@@ -23,7 +23,8 @@ NSString * const MapViewShouldRemoveAllAnnotations = @"com.lightMapDemo.mapNetWo
     annotation2.coordinate = CLLocationCoordinate2DMake(39.84195800000000000, 116.27251700000000000);
     
     [searchKeyModel.resultArray addObject:annotation1];
-    [searchKeyModel.resultArray addObject:annotation2];    
+    [searchKeyModel.resultArray addObject:annotation2];
+    
     //调用成功的回调
     if (successCallBack) {
         successCallBack();

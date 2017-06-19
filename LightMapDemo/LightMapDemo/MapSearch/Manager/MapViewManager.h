@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <MJExtension/MJExtension.h>
 #import "Constant_Basic.h"
 #import "MapSearchKeyModel.h"
 #import <Aspects/Aspects.h>
@@ -29,6 +30,11 @@ singletonInterface(MapViewManager)
  searchKeyModel
  */
 @property(nonatomic,weak)MapSearchKeyModel *searchKeyModel;
+
+/**
+ 经纬度数组
+ */
+@property (nonatomic,strong)NSMutableArray *locationArray;
 
 /**
  移除标注

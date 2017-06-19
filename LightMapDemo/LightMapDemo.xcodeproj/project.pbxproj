@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		161107C81EE8EA890043B77E /* MapBasePolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 161107C71EE8EA890043B77E /* MapBasePolygon.m */; };
 		161107CF1EE8EF960043B77E /* MapBasePolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 161107CE1EE8EF960043B77E /* MapBasePolygonView.m */; };
+		16442FFC1EF7F746009890B5 /* TestPolygonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16442FFB1EF7F746009890B5 /* TestPolygonModel.m */; };
 		16AF0D851EEB8FEC0064D992 /* Location.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16AF0D841EEB8FEC0064D992 /* Location.plist */; };
 		16BCAD4B1ED46DA100EB1A38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD4A1ED46DA100EB1A38 /* main.m */; };
 		16BCAD4E1ED46DA100EB1A38 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD4D1ED46DA100EB1A38 /* AppDelegate.mm */; };
@@ -56,6 +57,8 @@
 		161107C71EE8EA890043B77E /* MapBasePolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapBasePolygon.m; sourceTree = "<group>"; };
 		161107CD1EE8EF960043B77E /* MapBasePolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapBasePolygonView.h; sourceTree = "<group>"; };
 		161107CE1EE8EF960043B77E /* MapBasePolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapBasePolygonView.m; sourceTree = "<group>"; };
+		16442FFA1EF7F746009890B5 /* TestPolygonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPolygonModel.h; sourceTree = "<group>"; };
+		16442FFB1EF7F746009890B5 /* TestPolygonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPolygonModel.m; sourceTree = "<group>"; };
 		16AF0D841EEB8FEC0064D992 /* Location.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Location.plist; sourceTree = "<group>"; };
 		16BCAD461ED46DA100EB1A38 /* LightMapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightMapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BCAD4A1ED46DA100EB1A38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 			children = (
 				16BCAD881ED46E9B00EB1A38 /* MapSearchKeyModel.h */,
 				16BCAD891ED46E9B00EB1A38 /* MapSearchKeyModel.m */,
+				16442FFA1EF7F746009890B5 /* TestPolygonModel.h */,
+				16442FFB1EF7F746009890B5 /* TestPolygonModel.m */,
 			);
 			name = "数据层model";
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				16BCAD941ED46EAB00EB1A38 /* MapNetWorkManager.m in Sources */,
 				16BCADA01ED46FA100EB1A38 /* MyControl.m in Sources */,
 				16BCAD9C1ED46F1600EB1A38 /* UIView+frame.m in Sources */,
+				16442FFC1EF7F746009890B5 /* TestPolygonModel.m in Sources */,
 				16BCADC21ED552BC00EB1A38 /* MethodHookHandler.m in Sources */,
 				16BCAD951ED46EAB00EB1A38 /* MapViewManager.m in Sources */,
 			);

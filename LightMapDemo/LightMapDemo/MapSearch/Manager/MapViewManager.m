@@ -14,6 +14,7 @@
 #import "MapNetWorkManager.h"
 #import "NSObject+RunTimeHelper.h"
 
+#import "TestPolygonModel.h"
 /*定义地图缩放的持续时长*/
 #define MAP_ZOOM_DURATION  1.0
 /*地图从一个级别缩放至另一个级别，地图的缩放总次数*/
@@ -134,11 +135,10 @@ singletonImplementation(MapViewManager)
         STRONG(weakself);
         NSInvocation *invocation = [hookedObject originalInvocation];
         SEL hookedSelector = invocation.selector;
-        NSLog(@"hookedSelector = %@",NSStringFromSelector(hookedSelector));
         if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleDoubleBeginTouchPoint"]) {    //双指运动触摸屏幕
             [strongSelf hookedMethod_handleDoubleBeginTouchPoint];
         }else if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleDoubleMoveTouchPoint"]) {//处理双指移动
-            NSLog(@"双指移动中");
+//            NSLog(@"双指移动中");
         }else if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleDoubleEndTouchPoint"]){  //双指移动停止
             [strongSelf hookedMethod_handleDoubleEndTouchPoint];
             
@@ -153,7 +153,7 @@ singletonImplementation(MapViewManager)
 
 #pragma mark 双指触摸屏幕
 - (void)hookedMethod_handleDoubleBeginTouchPoint{
-    NSLog(@"双指触摸屏幕");
+//    NSLog(@"双指触摸屏幕");
     _zoomLevelPinStart = self.mapView.zoomLevel;
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     _tPinStart =[dat timeIntervalSince1970];
@@ -161,7 +161,7 @@ singletonImplementation(MapViewManager)
 
 #pragma mark 双指移动停止
 - (void)hookedMethod_handleDoubleEndTouchPoint{
-    NSLog(@"双指移动结束");
+//    NSLog(@"双指移动结束");
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     _tPinEnd =[dat timeIntervalSince1970];
     _zoomLevelPinEnd = self.mapView.zoomLevel;
@@ -277,7 +277,7 @@ singletonImplementation(MapViewManager)
  */
 - (void)addAnnotations{
     
-//    [self category_addAnnotations];
+    [self category_addAnnotations];
 }
 
 #pragma mark  隐藏百度地图的logo
@@ -309,6 +309,32 @@ singletonImplementation(MapViewManager)
 - (void)dealloc{
     NSLog(@"dealloc mapviewManager");
     [[NSNotificationCenter defaultCenter]removeObserver:self name:MapViewShouldRemoveAllAnnotations object:nil];
+}
+
+- (NSMutableArray *)locationArray{
+    if (!_locationArray) {
+        _locationArray = [NSMutableArray array];
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Location" ofType:@"plist"];
+        //字典数组
+        NSArray *dicArray = [NSArray arrayWithContentsOfFile:filePath];
+        //字典数组转化为模型数组
+        NSArray *allArray = [TestPolygonModel mj_objectArrayWithKeyValuesArray:dicArray];
+        
+        NSMutableArray *array0 = [NSMutableArray array];
+        for (int i = 1; i<4; i++) {
+            [array0 addObject:allArray[i]];
+        }
+        [_locationArray addObject:array0];
+
+        NSMutableArray *array1 = [NSMutableArray array];
+        for (int i = 5; i<8; i++) {
+            [array1 addObject:allArray[i]];
+        }
+        [_locationArray addObject:array1];
+    }
+    
+    return _locationArray;
 }
 
 
