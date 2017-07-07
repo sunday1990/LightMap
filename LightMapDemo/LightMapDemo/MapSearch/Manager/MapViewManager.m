@@ -25,7 +25,6 @@ NSString * const MapViewDidChangeDesType = @"com.lightMapDemo.mapViewManager.des
 @interface MapViewManager()
 {
 /*以下全局变量全部跟地图惯性运动相关*/
-   
     /*开始缩放的时间*/
     NSTimeInterval _tPinStart;
     /*结束缩放，也就是手指移开的时间*/
@@ -36,11 +35,13 @@ NSString * const MapViewDidChangeDesType = @"com.lightMapDemo.mapViewManager.des
     NSTimeInterval _tStirless;
     
     
+    
     /*记录开始拖拽时候的地图等级*/
     float _zoomLevelPinStart;
     /*记录结束拖拽时候的地图等级*/
     float _zoomLevelPinEnd;
-
+    
+    
     
     /*惯性运动方程的二次项系数*/
     float _quadraticCoefficient;
@@ -263,8 +264,6 @@ singletonImplementation(MapViewManager)
     //TODO：
 }
 
-
-
 /**
  移除标注
  */
@@ -315,7 +314,7 @@ singletonImplementation(MapViewManager)
     if (!_locationArray) {
         _locationArray = [NSMutableArray array];
         
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Location" ofType:@"plist"];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"LocationCoordinate" ofType:@"plist"];
         //字典数组
         NSArray *dicArray = [NSArray arrayWithContentsOfFile:filePath];
         //字典数组转化为模型数组

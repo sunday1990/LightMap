@@ -10,7 +10,7 @@
 		161107C81EE8EA890043B77E /* MapBasePolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 161107C71EE8EA890043B77E /* MapBasePolygon.m */; };
 		161107CF1EE8EF960043B77E /* MapBasePolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 161107CE1EE8EF960043B77E /* MapBasePolygonView.m */; };
 		16442FFC1EF7F746009890B5 /* TestPolygonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16442FFB1EF7F746009890B5 /* TestPolygonModel.m */; };
-		16AF0D851EEB8FEC0064D992 /* Location.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16AF0D841EEB8FEC0064D992 /* Location.plist */; };
+		16AF0D851EEB8FEC0064D992 /* LocationCoordinate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16AF0D841EEB8FEC0064D992 /* LocationCoordinate.plist */; };
 		16BCAD4B1ED46DA100EB1A38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD4A1ED46DA100EB1A38 /* main.m */; };
 		16BCAD4E1ED46DA100EB1A38 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD4D1ED46DA100EB1A38 /* AppDelegate.mm */; };
 		16BCAD511ED46DA100EB1A38 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCAD501ED46DA100EB1A38 /* ViewController.m */; };
@@ -59,7 +59,7 @@
 		161107CE1EE8EF960043B77E /* MapBasePolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapBasePolygonView.m; sourceTree = "<group>"; };
 		16442FFA1EF7F746009890B5 /* TestPolygonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPolygonModel.h; sourceTree = "<group>"; };
 		16442FFB1EF7F746009890B5 /* TestPolygonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPolygonModel.m; sourceTree = "<group>"; };
-		16AF0D841EEB8FEC0064D992 /* Location.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Location.plist; sourceTree = "<group>"; };
+		16AF0D841EEB8FEC0064D992 /* LocationCoordinate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LocationCoordinate.plist; sourceTree = "<group>"; };
 		16BCAD461ED46DA100EB1A38 /* LightMapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightMapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BCAD4A1ED46DA100EB1A38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		16BCAD4C1ED46DA100EB1A38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				16BCAD4A1ED46DA100EB1A38 /* main.m */,
-				16AF0D841EEB8FEC0064D992 /* Location.plist */,
+				16AF0D841EEB8FEC0064D992 /* LocationCoordinate.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -492,7 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16BCAD591ED46DA100EB1A38 /* LaunchScreen.storyboard in Resources */,
-				16AF0D851EEB8FEC0064D992 /* Location.plist in Resources */,
+				16AF0D851EEB8FEC0064D992 /* LocationCoordinate.plist in Resources */,
 				16BCAD561ED46DA100EB1A38 /* Assets.xcassets in Resources */,
 				16BCAD541ED46DA100EB1A38 /* Main.storyboard in Resources */,
 			);

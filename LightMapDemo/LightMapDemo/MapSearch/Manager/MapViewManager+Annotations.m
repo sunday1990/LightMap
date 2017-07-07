@@ -40,26 +40,27 @@
 }
 
 - (void)addMapPolygons{
-#pragma mark 算法实现
+#pragma mark 程序实现
     /*从self.locationArray中获取数据进行展示，存储的model是TestPolygonModel*/
+   
     /*1、获取需要malloc的内存区域，由以下几个部分组成:
      1st:  6个屏幕点
-     2st:  self.locationArray.count*2 - 1       计算每一个起点被加的次数，减一是因为最后一个数组的第一个点只需要加两遍，其他的都是三遍
-     3st:  self.locationArray子数组中元素的个数和
+     2st:  self.locationArray.count*2 - 1       计算多边形起点被多加的次数，后面的减一是因为最后一个数组的第一个点只需要多加一遍，其他的都是多加两遍，注意这里计算的是起点被多加的次数，而不是起点被添加的总次数
+     3st:  self.locationArray子数组中元素的个数和，self.locationArray存放的是经纬度模型数组。
      */
-    NSInteger mallocCount = 0;
-    NSInteger itemCount = 0;
-    NSInteger itemIndex = 0;
+    NSInteger mallocCount = 0;//需要分配的内存大小，也就是经纬度数组中总共的点数，也就是上面提到的三部分之和
+    NSInteger itemCount = 0;  //也就是self.locationArray子数组中经纬度模型的个数和
+    NSInteger itemIndex = 0;  //coors下表
     for (int i = 0; i<self.locationArray.count; i++) {
         itemCount = itemCount + [self.locationArray[i] count];
     }
     mallocCount = 6 + self.locationArray.count * 2 - 1 + itemCount;
-    /*2、循环计算，先无论是不是最后一个数组，都依次将该数组的点加进去，加完后再加一遍一开始的点。判断是不是最后一个数组，如果是的话，需要倒叙插入第一个点，*/
+    /*2、正序计算，无论是不是最后一个数组，先依次将该数组的点加进去，加完后再加一遍该数组中的第一个点。*/
     CLLocationCoordinate2D * coors = (CLLocationCoordinate2D *)malloc(mallocCount * sizeof(CLLocationCoordinate2D));
     /*添加屏幕左下角的S1点*/
     coors[0].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta*1.5;
     coors[0].latitude = self.mapView.region.center.latitude-self.mapView.region.span.latitudeDelta*1.5;
-    /*正序添加每一组的元素*/
+    /*正序添加每一个数组中的所有元素*/
     for (int i = 0; i < self.locationArray.count; i++) {
         NSArray *polygonArray = self.locationArray[i];
         for (int j = 0; j<polygonArray.count; j++) {
@@ -74,13 +75,16 @@
         coors[itemIndex].latitude = [startPolygon.lat floatValue];
         coors[itemIndex].longitude = [startPolygon.lng floatValue];
     }
-    /*倒叙添加每一组的第一个元素，除了最后一个组不需要添加*/
+    
+    /*3、倒叙添加每一组的第一个元素，但是最后一个组不需要添加，因为最后一个组总共只需要加两遍，所以过滤掉最后一组*/
     for (NSInteger i = self.locationArray.count - 1; i>0; i--) {
         itemIndex ++;
         TestPolygonModel *startPolygon = self.locationArray[i-1][0];                      //获取model
         coors[itemIndex].latitude = [startPolygon.lat floatValue];
         coors[itemIndex].longitude = [startPolygon.lng floatValue];
     }
+    
+    /*4、添加屏幕的边界点*/
     /*再次添加屏幕的起点*/
     itemIndex ++;
     coors[itemIndex].longitude = self.mapView.region.center.longitude-self.mapView.region.span.longitudeDelta*1.5;
@@ -109,7 +113,7 @@
     }
     return;
     
-#pragma mark 没有雾霾
+#pragma mark 非程序实现-没有雾霾
     /*添加底部阴影区域*/
     CLLocationCoordinate2D * coors0 = (CLLocationCoordinate2D *)malloc(17 * sizeof(CLLocationCoordinate2D));
     /*添加屏幕左下角的S1点*/
@@ -167,7 +171,8 @@
     BMKPolygon *polygonModel0 = [BMKPolygon polygonWithCoordinates:coors0 count:17];
     [self.mapView addOverlay:polygonModel0];
     return;
-#pragma mark 有雾霾
+    
+#pragma mark 非程序实现-有雾霾
     /*
      //添加底部阴影
      CLLocationCoordinate2D * coors0 = (CLLocationCoordinate2D *)malloc(4 * sizeof(CLLocationCoordinate2D));
