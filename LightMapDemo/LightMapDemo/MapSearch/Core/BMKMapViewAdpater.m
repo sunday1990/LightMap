@@ -17,6 +17,10 @@
 #define WEAK(object)                         __weak typeof(object) weak##object = object;
 #define STRONG(object)                       __strong __typeof(object)strongSelf = object;
 
+static int zoomDisplayCount;
+
+static CADisplayLink *displayLink;
+
 /*开始缩放的时间*/
 static NSTimeInterval _tPinStart;
 /*结束缩放，也就是手指移开的时间*/
@@ -137,6 +141,14 @@ static BMKMapViewAdpater *_mapAdpater;
 
 #pragma mark 双指触摸屏幕
 - (void)hookedMethod_handleDoubleBeginTouchPoint{
+    if (displayLink) {
+        displayLink.paused = YES;
+        displayLink = nil;
+        [displayLink invalidate];
+        zoomDisplayCount = 0;
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(changeMapLevelByStep) object:nil];
+        NSLog(@"终止displaylink");
+    }
     _zoomLevelPinStart = _mapView.zoomLevel;
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     _tPinStart =[dat timeIntervalSince1970];
@@ -144,7 +156,6 @@ static BMKMapViewAdpater *_mapAdpater;
 
 #pragma mark 双指移动停止
 - (void)hookedMethod_handleDoubleEndTouchPoint{
-    NSLog(@"双指移动结束");
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     _tPinEnd =[dat timeIntervalSince1970];
     _zoomLevelPinEnd = _mapView.zoomLevel;
@@ -188,16 +199,10 @@ static BMKMapViewAdpater *_mapAdpater;
     _tStirless = (-_oneCoefficient)/(2*_quadraticCoefficient);
 }
 
-#pragma mark /*刷新抛物线上的y值：zoomlevel，在这里将时间分成了10份*/
+#pragma mark /*刷新抛物线上的y值：zoomlevel，在这里使之与屏幕刷新频率一致/
 - (void)parabola_refreshMapZoomLevel{
-    float unitZoomLevelDuringTime = (_tStirless - _tPinMoving)/MAP_ZOOM_NUM;
-    for (int i = 1; i<=MAP_ZOOM_NUM; i++) {
-        float tempZoomLevel = [self parabola_calculateMapZoomLevelAtRealTime:_tPinMoving+i*unitZoomLevelDuringTime];
-        dispatch_time_t time =  dispatch_time(DISPATCH_TIME_NOW, (uint64_t)(NSEC_PER_SEC * (i*unitZoomLevelDuringTime)));
-        dispatch_after(time, dispatch_get_main_queue(), ^{
-            [_mapView setZoomLevel:tempZoomLevel];
-        });
-    }
+    NSTimeInterval zoomLevelDuringTime = _tStirless - _tPinMoving;//总得惯性运动时间
+    [self startAnimateWithtimeDuration:zoomLevelDuringTime];
 }
 
 #pragma mark /*实时计算抛物线上time所对应的maplevel*/
@@ -205,4 +210,28 @@ static BMKMapViewAdpater *_mapAdpater;
     return _quadraticCoefficient *(realTime *realTime) + _oneCoefficient * realTime + _zoomLevelPinStart;
 }
 
+- (void)startAnimateWithtimeDuration:(NSTimeInterval)time{
+    if (time > 0) {
+        if (displayLink) {
+            displayLink.paused = YES;
+        }
+        displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(changeMapLevelByStep)];
+        [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+        displayLink.paused = NO;
+        dispatch_time_t timeT =  dispatch_time(DISPATCH_TIME_NOW, (uint64_t)(NSEC_PER_SEC * time));
+        dispatch_after(timeT, dispatch_get_main_queue(), ^{
+            displayLink.paused = YES;
+            [displayLink invalidate];
+            displayLink = nil;
+            zoomDisplayCount = 0;
+        });
+    }
+}
+
+- (void)changeMapLevelByStep{
+    zoomDisplayCount ++;
+    float time = zoomDisplayCount/60.f;
+    float tempZoomLevel = [self parabola_calculateMapZoomLevelAtRealTime:_tPinMoving + time];
+    [_mapView setZoomLevel:tempZoomLevel];
+}
 @end
