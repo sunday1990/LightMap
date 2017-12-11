@@ -68,7 +68,8 @@ singletonInterface(MapViewManager)
 /**
  开启地图惯性缩放
 
- @param inertiaCoefficient 惯性系数，系数越小，惯性越大，系数越大，惯性越小
+ @param inertiaCoefficient 惯性系数，系数越小，惯性越小，越容易改变，系数越大，惯性越大，越不容易改变
+
  */
 - (void)openMapInertiaDragWithCoefficient:(float)inertiaCoefficient;
 
