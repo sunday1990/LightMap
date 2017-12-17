@@ -1,12 +1,12 @@
 //
-//  MapAdpater.m
+//  BMKMapViewAdapter.m
 //  SpaceHome
 //
 //  Created by ccSunday on 2017/11/27.
 //  Copyright © 2017年 kongjianjia.com. All rights reserved.
 //
 
-#import "BMKMapViewAdpater.h"
+#import "BMKMapViewAdapter.h"
 #import <Aspects/Aspects.h>
 #import "NSObject+RunTimeHelper.h"
 /*地图缩放的时间*/
@@ -48,12 +48,12 @@ static BMKMapView *_mapView;
 
 static BOOL _close;
 
-static BMKMapViewAdpater *_mapAdpater;
+static BMKMapViewAdapter *_mapAdpater;
 
-@implementation BMKMapViewAdpater
+@implementation BMKMapViewAdapter
 
 + (void)initialize{
-    _mapAdpater = [[BMKMapViewAdpater alloc]init];
+    _mapAdpater = [[BMKMapViewAdapter alloc]init];
 }
 
 + (void)mapView:(BMKMapView *)mapView closeMapInertialDrag:(BOOL)close{
@@ -142,12 +142,11 @@ static BMKMapViewAdpater *_mapAdpater;
 #pragma mark 双指触摸屏幕
 - (void)hookedMethod_handleDoubleBeginTouchPoint{
     if (displayLink) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(moveDidEnd) object:nil];
         displayLink.paused = YES;
         displayLink = nil;
         [displayLink invalidate];
         zoomDisplayCount = 0;
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(changeMapLevelByStep) object:nil];
-        NSLog(@"终止displaylink");
     }
     _zoomLevelPinStart = _mapView.zoomLevel;
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
@@ -218,13 +217,7 @@ static BMKMapViewAdpater *_mapAdpater;
         displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(changeMapLevelByStep)];
         [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
         displayLink.paused = NO;
-        dispatch_time_t timeT =  dispatch_time(DISPATCH_TIME_NOW, (uint64_t)(NSEC_PER_SEC * time));
-        dispatch_after(timeT, dispatch_get_main_queue(), ^{
-            displayLink.paused = YES;
-            [displayLink invalidate];
-            displayLink = nil;
-            zoomDisplayCount = 0;
-        });
+        [self performSelector:@selector(moveDidEnd) withObject:nil afterDelay:time];
     }
 }
 
@@ -234,4 +227,12 @@ static BMKMapViewAdpater *_mapAdpater;
     float tempZoomLevel = [self parabola_calculateMapZoomLevelAtRealTime:_tPinMoving + time];
     [_mapView setZoomLevel:tempZoomLevel];
 }
+
+- (void)moveDidEnd{
+    displayLink.paused = YES;
+    [displayLink invalidate];
+    displayLink = nil;
+    zoomDisplayCount = 0;
+}
+
 @end

@@ -1,5 +1,5 @@
 //
-//  MapAdpater.h
+//  BMKMapViewAdapter.h
 //  SpaceHome
 //
 //  Created by ccSunday on 2017/11/27.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 
-@interface BMKMapViewAdpater : NSObject
+@interface BMKMapViewAdapter : NSObject
 
 /**
  

@@ -104,7 +104,6 @@
 - (MapViewManager *)mapViewManager{
     _mapViewManager = [MapViewManager sharedMapViewManager];
     _mapViewManager.searchKeyModel = self.searchKeyModel;
-    [_mapViewManager hideBaiduMapLogo];
     [_mapViewManager openMapInertiaDragWithCoefficient:8.0];
     return _mapViewManager;
 }

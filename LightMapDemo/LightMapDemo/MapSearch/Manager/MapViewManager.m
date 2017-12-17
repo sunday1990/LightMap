@@ -15,7 +15,7 @@
 #import "NSObject+RunTimeHelper.h"
 #import "TestPolygonModel.h"
 
-#import "BMKMapViewAdpater.h"
+#import "BMKMapViewAdapter.h"
 
 /*定义地图缩放的持续时长*/
 #define MAP_ZOOM_DURATION  1.0
@@ -105,13 +105,13 @@ singletonImplementation(MapViewManager)
 #pragma mark 关闭地图惯性缩放
 - (void)cloaseMapInertialDrag{
 //codes: ...
-    [BMKMapViewAdpater mapView:self.mapView closeMapInertialDrag:YES];
+    [BMKMapViewAdapter mapView:self.mapView closeMapInertialDrag:YES];
 }
 
 #pragma mark 开启地图的惯性缩放
 - (void)openMapInertiaDragWithCoefficient:(float)inertiaCoefficient{
     /*惯性系数也就是方程的二次项系数*/
-    [BMKMapViewAdpater mapView:self.mapView openInertiaDragWithCoefficient:inertiaCoefficient];
+    [BMKMapViewAdapter mapView:self.mapView openInertiaDragWithCoefficient:inertiaCoefficient];
 }
 
 
@@ -126,7 +126,7 @@ singletonImplementation(MapViewManager)
 
 - (void)dampZoomingMapLevelFromCurrentValue:(float)currentLevel
                              ToSettingValue:(float)settingLevel{
-    [BMKMapViewAdpater mapView:self.mapView dampZoomingMapLevelFromCurrentValue:currentLevel ToSettingValue:settingLevel];
+    [BMKMapViewAdapter mapView:self.mapView dampZoomingMapLevelFromCurrentValue:currentLevel ToSettingValue:settingLevel];
 }
 #pragma mark /************************************************ Event Responses **************************************************/
 #pragma mark 加减号点击事件
@@ -163,12 +163,12 @@ singletonImplementation(MapViewManager)
 
 #pragma mark  隐藏百度地图的logo
 - (void)hideBaiduMapLogo{
-    [BMKMapViewAdpater mapView:self.mapView setBaiduMapLogoHiddenStatus:YES];
+    [BMKMapViewAdapter mapView:self.mapView setBaiduMapLogoHiddenStatus:YES];
 }
 
 #pragma mark  显示百度地图的logo
 - (void)showBaiduMapLogo{
-    [BMKMapViewAdpater mapView:self.mapView setBaiduMapLogoHiddenStatus:NO];
+    [BMKMapViewAdapter mapView:self.mapView setBaiduMapLogoHiddenStatus:NO];
 }
 
 - (void)dealloc{
