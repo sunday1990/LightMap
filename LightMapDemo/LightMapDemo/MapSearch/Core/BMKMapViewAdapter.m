@@ -121,6 +121,7 @@ static BMKMapViewAdapter *_mapAdpater;
             return;
         }
         NSInvocation *invocation = [hookedObject originalInvocation];
+        NSLog(@"selector is %@",NSStringFromSelector(invocation.selector));
         SEL hookedSelector = invocation.selector;
         if ([NSStringFromSelector(hookedSelector) isEqualToString:@"aspects__handleDoubleBeginTouchPoint"]) {    //双指运动触摸屏幕
             [_mapAdpater hookedMethod_handleDoubleBeginTouchPoint];

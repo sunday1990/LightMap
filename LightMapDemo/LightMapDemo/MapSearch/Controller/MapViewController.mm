@@ -67,6 +67,7 @@
 
 #pragma  mark NetWork
 - (void)requestData{
+    return;
     //1、请求地图数据
     WEAK(_mapViewManager);
   
